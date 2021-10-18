@@ -60,7 +60,7 @@ class _NovoUsuarioState extends State<NovoUsuario> {
               decoration: InputDecoration(
                 labelText: "Nome Completo",
                 hintText: "Digite seu Nome completo",
-                labelStyle: TextStyle(color:Colors.black87),
+                labelStyle: TextStyle(color: Theme.of(context).primaryColor),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                 )
@@ -82,7 +82,7 @@ class _NovoUsuarioState extends State<NovoUsuario> {
               decoration: InputDecoration(
                 labelText: "Usuário",
                 hintText: "Digite o Nome de usuário",
-                labelStyle: TextStyle(color:Colors.black87),
+                labelStyle: TextStyle(color:Theme.of(context).primaryColor),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                 )
@@ -104,7 +104,7 @@ class _NovoUsuarioState extends State<NovoUsuario> {
               decoration: InputDecoration(
                 labelText: "Email",
                 hintText: "Digite seu Email",
-                labelStyle: TextStyle(color:Colors.black87),
+                labelStyle: TextStyle(color:Theme.of(context).primaryColor),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                 )
@@ -126,7 +126,7 @@ class _NovoUsuarioState extends State<NovoUsuario> {
               decoration: InputDecoration(
                 labelText: "Senha",
                 hintText: "Digite a senha",
-                labelStyle: TextStyle(color:Colors.black87),
+                labelStyle: TextStyle(color:Theme.of(context).primaryColor),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                 )
@@ -148,7 +148,7 @@ class _NovoUsuarioState extends State<NovoUsuario> {
               decoration: InputDecoration(
                 labelText: "Confirmar senha",
                 hintText: "Confirme a senha",
-                labelStyle: TextStyle(color:Colors.black87),
+                labelStyle: TextStyle(color:Theme.of(context).primaryColor),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                 )

@@ -13,7 +13,8 @@ class Usuario{
   final String usuario;
   final String email;
   final String senha;
-  Usuario(this.nome,this.usuario,this.email,this.senha);
+  final String testeSenha;
+  Usuario(this.nome,this.usuario,this.email,this.senha,this.testeSenha);
 }
 
 class _NovoUsuarioState extends State<NovoUsuario> {
@@ -22,163 +23,215 @@ class _NovoUsuarioState extends State<NovoUsuario> {
   var usuario = TextEditingController();
   var email = TextEditingController();
   var senha = TextEditingController();
+  var testeSenha = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          SizedBox(height: 20),
-          
-          Row(
-            //mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(width: 20),
-              Container(
-                child: Icon(Icons.account_circle, size: 70, color: Theme.of(context).primaryColor),
+      body: Form(
+        key: _formKey,
+
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(height: 20),
+            
+            Row(
+              //mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(width: 30),
+                Container(
+                  child: Icon(Icons.account_circle, size: 70, color: Theme.of(context).primaryColor),
+                ),
+                SizedBox(width: 80),
+                Container(
+                  child: Image.asset('lib/assets/valefarma.jpeg', height: 70)
+                )
+              ],
+            ),
+            
+            SizedBox(height: 40),
+            
+            Container(   
+              alignment: Alignment.center,
+              width: MediaQuery.of(context).size.width*0.90, 
+              height: 60,
+              padding: EdgeInsets.only(
+                top:2, left: 16, right: 16, bottom:2
               ),
-              SizedBox(width: 80),
-              Container(
-                 child: Image.asset('lib/assets/valefarma.jpeg', height: 70)
-              )
-            ],
-          ),
-          
-          SizedBox(height: 40),
-          
-          Container(   
-            alignment: Alignment.center,
-            width: MediaQuery.of(context).size.width*0.90, 
-            height: 60,
-            padding: EdgeInsets.only(
-              top:2, left: 16, right: 16, bottom:2
-            ),
-            child: TextFormField(
-              keyboardType: TextInputType.text,
-              style: Theme.of(context).textTheme.headline2,
-              decoration: InputDecoration(
-                labelText: "Nome Completo",
-                hintText: "Digite seu Nome completo",
-                labelStyle: TextStyle(color: Theme.of(context).primaryColor),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
+              child: TextFormField(
+                controller: nome,
+                //keyboardType: TextInputType.text,
+                style: Theme.of(context).textTheme.headline2,
+                decoration: InputDecoration(
+                  labelText: "Nome Completo",
+                  hintText: "Digite seu Nome completo",
+                  labelStyle: TextStyle(color: Theme.of(context).primaryColor),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  )
                 )
-              )
+              ),
             ),
-          ),
 
-          SizedBox(height: 15),
-          Container(   
-            alignment: Alignment.center,
-            width: MediaQuery.of(context).size.width*0.90, 
-            height: 60,
-            padding: EdgeInsets.only(
-              top:2, left: 16, right: 16, bottom:2
-            ),
-            child: TextFormField(
-              keyboardType: TextInputType.text,
-              style: Theme.of(context).textTheme.headline2,
-              decoration: InputDecoration(
-                labelText: "Usuário",
-                hintText: "Digite o Nome de usuário",
-                labelStyle: TextStyle(color:Theme.of(context).primaryColor),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
+            SizedBox(height: 15),
+            Container(   
+              alignment: Alignment.center,
+              width: MediaQuery.of(context).size.width*0.90, 
+              height: 60,
+              padding: EdgeInsets.only(
+                top:2, left: 16, right: 16, bottom:2
+              ),
+              child: TextFormField(
+                controller: usuario,
+                //keyboardType: TextInputType.text,
+                style: Theme.of(context).textTheme.headline2,
+                decoration: InputDecoration(
+                  labelText: "Usuário",
+                  hintText: "Digite o Nome de usuário",
+                  labelStyle: TextStyle(color:Theme.of(context).primaryColor),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  )
                 )
-              )
+              ),
             ),
-          ),
 
-          SizedBox(height: 15),
-          Container(   
-            alignment: Alignment.center,
-            width: MediaQuery.of(context).size.width*0.90, 
-            height: 60,
-            padding: EdgeInsets.only(
-              top:2, left: 16, right: 16, bottom:2
-            ),
-            child: TextFormField(
-              keyboardType: TextInputType.text,
-              style: Theme.of(context).textTheme.headline2,
-              decoration: InputDecoration(
-                labelText: "Email",
-                hintText: "Digite seu Email",
-                labelStyle: TextStyle(color:Theme.of(context).primaryColor),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
+            SizedBox(height: 15),
+            Container(   
+              alignment: Alignment.center,
+              width: MediaQuery.of(context).size.width*0.90, 
+              height: 60,
+              padding: EdgeInsets.only(
+                top:2, left: 16, right: 16, bottom:2
+              ),
+              child: TextFormField(
+                controller: email,
+                //keyboardType: TextInputType.text,
+                style: Theme.of(context).textTheme.headline2,
+                decoration: InputDecoration(
+                  labelText: "Email",
+                  hintText: "Digite seu Email",
+                  labelStyle: TextStyle(color:Theme.of(context).primaryColor),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  )
                 )
-              )
+              ),
             ),
-          ),
 
-          SizedBox(height: 15),
-          Container(   
-            alignment: Alignment.center,
-            width: MediaQuery.of(context).size.width*0.90, 
-            height: 60,
-            padding: EdgeInsets.only(
-              top:2, left: 16, right: 16, bottom:2
-            ),
-            child: TextFormField(
-              keyboardType: TextInputType.text,
-              style: Theme.of(context).textTheme.headline2,
-              decoration: InputDecoration(
-                labelText: "Senha",
-                hintText: "Digite a senha",
-                labelStyle: TextStyle(color:Theme.of(context).primaryColor),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
+            SizedBox(height: 15),
+            Container(   
+              alignment: Alignment.center,
+              width: MediaQuery.of(context).size.width*0.90, 
+              height: 60,
+              padding: EdgeInsets.only(
+                top:2, left: 16, right: 16, bottom:2
+              ),
+              child: TextFormField(
+                controller: senha,
+                //keyboardType: TextInputType.text,
+                style: Theme.of(context).textTheme.headline2,
+                decoration: InputDecoration(
+                  labelText: "Senha",
+                  hintText: "Digite a senha",
+                  labelStyle: TextStyle(color:Theme.of(context).primaryColor),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  )
                 )
-              )
+              ),
             ),
-          ),
 
-          SizedBox(height: 15),
-          Container(   
-            alignment: Alignment.center,
-            width: MediaQuery.of(context).size.width*0.90, 
-            height: 60,
-            padding: EdgeInsets.only(
-              top:2, left: 16, right: 16, bottom:2
-            ),
-            child: TextFormField(
-              keyboardType: TextInputType.text,
-              style: Theme.of(context).textTheme.headline2,
-              decoration: InputDecoration(
-                labelText: "Confirmar senha",
-                hintText: "Confirme a senha",
-                labelStyle: TextStyle(color:Theme.of(context).primaryColor),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
+            SizedBox(height: 15),
+            Container(
+              alignment: Alignment.center,
+              width: MediaQuery.of(context).size.width*0.90, 
+              height: 60,
+              padding: EdgeInsets.only(
+                top:2, left: 16, right: 16, bottom:2
+              ),
+              child: TextFormField(
+                controller: testeSenha,
+                validator: (value){
+                  if(value != senha.text){
+                    return 'Senhas não batem';  
+                  }
+                  return null;              
+                },
+                //keyboardType: TextInputType.text,
+                style: Theme.of(context).textTheme.headline2,
+                decoration: InputDecoration(
+                  labelText: "Confirmar senha",
+                  hintText: "Confirme a senha",
+                  labelStyle: TextStyle(color:Theme.of(context).primaryColor),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  )
                 )
-              )
+              ),
             ),
-          ),
 
-          SizedBox(height: 30),
-              Container(   
-                alignment: Alignment.bottomCenter,
-                child: ElevatedButton(
-                  onPressed: () { Navigator.pushNamed(context, '/Tela2');},
-                  child: Text('Entrar',
-                  style: GoogleFonts.roboto(color: Colors.white, fontSize: 20),
-                                   
-                  ),
-                  style: ElevatedButton.styleFrom(
-                      primary: Colors.grey,
-                      padding:EdgeInsets.symmetric(horizontal:30,vertical:20)
+            SizedBox(height: 50),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(   
+                  alignment: Alignment.bottomCenter,
+                  child: ElevatedButton.icon(
+                    onPressed: () { Navigator.pushNamed(context, '/menu');
+                      //if (_formKey.currentState.validate()) {
+                      //Scaffold
+                        //.of(context)
+                        //.showSnackBar(SnackBar(content: Text('Processing Data')));
+                      //}
+                    },
+                    icon: Icon(
+                      Icons.check,
+                      color: Colors.white,
+                      size: 24.0,
+                    ),
+                    label: Text('Registrar',
+                    style: GoogleFonts.roboto(color: Colors.white, fontSize: 20),                                
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.green,
+                      padding:EdgeInsets.fromLTRB(20, 20, 30, 20),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
                   ),
                 ),
-              ),
-        ],
+
+                SizedBox(width: 60),
+                Container(   
+                  alignment: Alignment.bottomCenter,
+                  child: ElevatedButton.icon(
+                    onPressed: () { Navigator.pushNamed(context, '/menu');},
+                    icon: Icon(
+                      Icons.cancel,
+                      color: Colors.white,
+                      size: 24.0,
+                    ),
+                    label: Text('Cancelar',
+                    style: GoogleFonts.roboto(color: Colors.white, fontSize: 20),                                
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.red,
+                      padding:EdgeInsets.fromLTRB(20, 20, 30, 20),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        )
       )
     );
   }
-
-  
-
-
-
-
 }

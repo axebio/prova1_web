@@ -14,9 +14,9 @@ void main() {
 
       initialRoute: '/Login',
       routes: {
-        //'/Tela1': (context)=> Login(),
-        '/Tela2': (context)=> NovoUsuario(),
-        //'/Tela3': (context)=> Menu(),
+        //'/login': (context)=> Login(),
+        '/novousuario': (context)=> NovoUsuario(),
+        //'/menu': (context)=> Menu(),
       },
 
       theme: ThemeData(

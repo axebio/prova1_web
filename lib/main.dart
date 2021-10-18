@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-//import 'Login.dart';
+import 'Login.dart';
 import 'NovoUsuario.dart';
-//import 'Menu.dart';
+import 'Menu.dart';
 
 
 void main() {

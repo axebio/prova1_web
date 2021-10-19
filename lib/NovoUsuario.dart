@@ -56,7 +56,7 @@ class _NovoUsuarioState extends State<NovoUsuario> {
                   ),
                   SizedBox(width: 80),
                   Container(
-                    child: Image.asset('lib/assets/valefarma.jpeg', height: 70)
+                    child: Image.asset('lib/assets/valefarma.png', height: 200)
                   )
                 ],
               ),

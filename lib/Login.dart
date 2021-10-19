@@ -125,7 +125,7 @@ class _LoginState extends State<Login> {
             alignment: Alignment.bottomCenter,
             child: TextButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/Tela2');
+                Navigator.pushNamed(context, '/novousuario');
               },
               child: Text(
                 'CADASTRE-SE',

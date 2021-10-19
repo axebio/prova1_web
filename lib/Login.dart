@@ -29,7 +29,7 @@ class _LoginState extends State<Login> {
         body: Column(children: [
           SizedBox(height: 100),
           Container(
-            child: Icon(Icons.person_outline,
+            child: Icon(Icons.supervisor_account,
                 size: 120, color: Theme.of(context).primaryColor),
             alignment: Alignment.center,
           ),
@@ -37,7 +37,7 @@ class _LoginState extends State<Login> {
           SizedBox(height: 20),
           Container(
             alignment: Alignment.center,
-            width: MediaQuery.of(context).size.width * 0.80,
+            width: MediaQuery.of(context).size.width * 0.30,
             height: 60,
             padding: EdgeInsets.only(top: 2, left: 16, right: 16, bottom: 2),
             child: TextFormField(
@@ -55,7 +55,7 @@ class _LoginState extends State<Login> {
           SizedBox(height: 20),
           Container(
             alignment: Alignment.center,
-            width: MediaQuery.of(context).size.width * 0.80,
+            width: MediaQuery.of(context).size.width * 0.30,
             height: 60,
             padding: EdgeInsets.only(top: 2, left: 16, right: 16, bottom: 2),
             child: TextFormField(
@@ -73,18 +73,26 @@ class _LoginState extends State<Login> {
           SizedBox(height: 20),
           Container(
             alignment: Alignment.bottomCenter,
-            child: ElevatedButton(
+            child: ElevatedButton.icon(
               onPressed: () {
-                Navigator.pushNamed(context, '/Tela2');
+                Navigator.pushNamed(context, '/menu');
               },
-              child: Text(
+              icon: Icon(
+                Icons.login,
+                color: Colors.white,
+                size: 24.0,
+              ),
+              label: Text(
                 'Entrar',
-                style:
-                    GoogleFonts.montserrat(color: Colors.white, fontSize: 20),
+                style: GoogleFonts.roboto(color: Colors.white, fontSize: 20),
               ),
               style: ElevatedButton.styleFrom(
-                  primary: Colors.grey,
-                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20)),
+                primary: Colors.grey.shade800,
+                padding: EdgeInsets.fromLTRB(60, 30, 60, 30),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
             ),
           ),
 
@@ -92,7 +100,7 @@ class _LoginState extends State<Login> {
           //Esqueceu a senha?
           //Criar uma conta
 
-          SizedBox(height: 20),
+          SizedBox(height: 40),
           Container(
             alignment: Alignment.bottomCenter,
             child: ElevatedButton(
@@ -100,24 +108,25 @@ class _LoginState extends State<Login> {
                 Navigator.pushNamed(context, '/Tela2');
               },
               child: Text(
-                'Esqueceu sua senha?',
+                'RECUPERAR A SENHA',
                 style: GoogleFonts.montserrat(color: Colors.black),
               ),
               style: ElevatedButton.styleFrom(
-                primary: Colors.grey[100],
+                padding: EdgeInsets.fromLTRB(25, 30, 25, 30),
+                primary: Colors.grey.shade200,
               ),
             ),
           ),
 
-          SizedBox(height: 100),
+          SizedBox(height: 60),
           Container(
             alignment: Alignment.bottomCenter,
-            child: ElevatedButton(
+            child: TextButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/Tela2');
               },
               child: Text(
-                'Não possui uma conta? Cadastre-se',
+                'CADASTRE-SE',
                 style: GoogleFonts.montserrat(color: Colors.black),
               ),
               style: ElevatedButton.styleFrom(

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 //import 'Login.dart';
 import 'NovoUsuario.dart';
-//import 'Menu.dart';
+import 'Menu.dart';
 
 
 void main() {
@@ -14,9 +14,9 @@ void main() {
 
       initialRoute: '/Login',
       routes: {
-        //'/Tela1': (context)=> Login(),
-        '/Tela2': (context)=> NovoUsuario(),
-        //'/Tela3': (context)=> Menu(),
+        //'/login': (context)=> Login(),
+        '/novousuario': (context)=> NovoUsuario(),
+        '/menu': (context)=> Menu(),
       },
 
       theme: ThemeData(

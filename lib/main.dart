@@ -16,7 +16,7 @@ void main() {
       routes: {
         //'/login': (context)=> Login(),
         '/novousuario': (context)=> NovoUsuario(),
-        //'/menu': (context)=> Menu(),
+        '/menu': (context)=> Menu(),
       },
 
       theme: ThemeData(

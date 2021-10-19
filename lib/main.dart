@@ -34,10 +34,8 @@ void main() {
             fontSize: 18,
             fontWeight: FontWeight.normal
           )
-
         )
       )
-
     )
   );
 }

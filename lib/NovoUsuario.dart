@@ -165,7 +165,10 @@ class _NovoUsuarioState extends State<NovoUsuario> {
                 child: TextFormField(
                   controller: testeSenha,
                   validator: (value){
-                    if(value != senha.text){
+                    if (value == null || value.isEmpty) {
+                      return 'preencha novamente a senha';
+                    }
+                    else if(value != senha.text){
                       return 'Senhas não batem';  
                     }
                     return null;              
@@ -191,11 +194,11 @@ class _NovoUsuarioState extends State<NovoUsuario> {
                     alignment: Alignment.bottomCenter,
                     child: ElevatedButton.icon(
                       onPressed: () { Navigator.pushNamed(context, '/menu');
-                        //if (_formKey.currentState.validate()) {
-                        //Scaffold
-                          //.of(context)
-                          //.showSnackBar(SnackBar(content: Text('Processing Data')));
-                        //}
+                        if (_formKey.currentState!.validate()) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text('As senhas não batem')),
+                          );
+                        }
                       },
                       icon: Icon(
                         Icons.check,

@@ -16,14 +16,16 @@ class _LoginState extends State<Login> {
           automaticallyImplyLeading: true,
           title: Text(
             'VALEFARMA',
-            style: Theme.of(context).textTheme.headline1,
+            style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+            // Theme.of(context).textTheme.headline1,
           ),
           backgroundColor: Theme.of(context).primaryColor,
-          // leading: GestureDetector(
-          //     onTap: () {
-          //       Navigator.pushNamed(context, '/Tela3');
-          //     },
-          //     child: Icon(Icons.info, size: 40)),
+          leading: GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/Tela3');
+              },
+              child: Image.asset('lib/assets/diamante.png', height: 90)),
+          // Icon(Icons.info, size: 40)),
         ),
         backgroundColor: Theme.of(context).backgroundColor,
         body: Column(children: [

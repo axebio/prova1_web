@@ -2,43 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'Login.dart';
 import 'NovoUsuario.dart';
-import 'Menu.dart';
-
+// import 'Menu.dart';
 
 void main() {
-  runApp(
-    MaterialApp(
+  runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'ValeFarma',
       home: NovoUsuario(),
-
       initialRoute: '/Login',
       routes: {
         //'/Tela1': (context)=> Login(),
-        '/Tela2': (context)=> NovoUsuario(),
+        '/Tela2': (context) => NovoUsuario(),
         //'/Tela3': (context)=> Menu(),
       },
-
       theme: ThemeData(
-        primaryColor: Colors.grey[800],
-        backgroundColor: Colors.grey[100],
-        
-        textTheme: TextTheme(
-          headline1: GoogleFonts.roboto(
-            color: Colors.white,
-            fontSize: 22,
-            fontWeight: FontWeight.normal
-          ),
-          headline2: GoogleFonts.roboto(
-            color: Colors.black,
-            fontSize: 18,
-            fontWeight: FontWeight.normal
-          )
-
-        )
-      )
-
-    )
-  );
+          primaryColor: Colors.grey[800],
+          backgroundColor: Colors.grey[100],
+          textTheme: TextTheme(
+              headline1: GoogleFonts.roboto(
+                  color: Colors.white,
+                  fontSize: 22,
+                  fontWeight: FontWeight.normal),
+              headline2: GoogleFonts.roboto(
+                  color: Colors.black,
+                  fontSize: 18,
+                  fontWeight: FontWeight.normal)))));
 }
-

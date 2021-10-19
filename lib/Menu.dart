@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
-
-=======
 import 'package:google_fonts/google_fonts.dart';
->>>>>>> d0ca2d26e5080e1236529616b2b5a8c6434fce82
 
 class Menu extends StatelessWidget{
   @override

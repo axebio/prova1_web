@@ -219,21 +219,21 @@ class _NovoUsuarioState extends State<NovoUsuario> {
                   Container(   
                     alignment: Alignment.bottomCenter,
                     child: ElevatedButton.icon(
-                      onPressed: () { Navigator.pushNamed(context, '/menu');},
-                      icon: Icon(
-                        Icons.cancel,
-                        color: Colors.white,
-                        size: 24.0,
+                    onPressed: () { Navigator.pushNamed(context, '/menu');},
+                    icon: Icon(
+                      Icons.cancel,
+                      color: Colors.white,
+                      size: 24.0,
+                    ),
+                    label: Text('Cancelar',
+                    style: GoogleFonts.roboto(color: Colors.white, fontSize: 20),                                
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.red,
+                      padding:EdgeInsets.fromLTRB(20, 20, 30, 20),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
                       ),
-                      label: Text('Cancelar',
-                      style: GoogleFonts.roboto(color: Colors.white, fontSize: 20),                                
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        primary: Colors.red,
-                        padding:EdgeInsets.fromLTRB(20, 20, 30, 20),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
                       ),
                     ),
                   ),

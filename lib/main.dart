@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-//import 'Login.dart';
+import 'Login.dart';
 import 'NovoUsuario.dart';
 import 'Menu.dart';
+
 
 
 void main() {
@@ -10,7 +11,7 @@ void main() {
     MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'ValeFarma',
-      home: NovoUsuario(),
+      home: Login(),
 
       initialRoute: '/Login',
       routes: {
@@ -22,7 +23,8 @@ void main() {
       theme: ThemeData(
         primaryColor: Colors.grey[800],
         backgroundColor: Colors.grey[100],
-        
+
+
         textTheme: TextTheme(
           headline1: GoogleFonts.roboto(
             color: Colors.white,
@@ -34,11 +36,8 @@ void main() {
             fontSize: 18,
             fontWeight: FontWeight.normal
           )
-
         )
       )
-
     )
   );
 }
-

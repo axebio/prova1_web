@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class NovoUsuario extends StatefulWidget {
-  const NovoUsuario({Key? key}) : super(key: key);
+class NovoCliente extends StatefulWidget {
+  const NovoCliente({Key? key}) : super(key: key);
 
   @override
-  _NovoUsuarioState createState() => _NovoUsuarioState();
+  _NovoClienteState createState() => _NovoClienteState();
 }
 
 class Usuario {
@@ -17,7 +17,7 @@ class Usuario {
   Usuario(this.nome, this.usuario, this.email, this.senha, this.testeSenha);
 }
 
-class _NovoUsuarioState extends State<NovoUsuario> {
+class _NovoClienteState extends State<NovoCliente> {
   var nome = TextEditingController();
   var usuario = TextEditingController();
   var email = TextEditingController();
@@ -31,7 +31,7 @@ class _NovoUsuarioState extends State<NovoUsuario> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: Text(
-          'Cadastro de Usuário',
+          'Cadastro de Cliente',
           style: Theme.of(context).textTheme.headline1,
         ),
         backgroundColor: Theme.of(context).primaryColor,
@@ -51,9 +51,11 @@ class _NovoUsuarioState extends State<NovoUsuario> {
                   SizedBox(width: 30),
                   Container(
                     child: Icon(Icons.account_circle,
-                        size: 70, color: Theme.of(context).primaryColor),
+                        size: 100, color: Theme.of(context).primaryColor),
                   ),
-                  SizedBox(width: 80),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width - 300,
+                  ),
                   Container(
                       child:
                           Image.asset('lib/assets/valefarma.png', height: 70))

@@ -14,14 +14,12 @@ class MenuCliente extends StatelessWidget {
         backgroundColor: Theme.of(context).primaryColor,
         centerTitle: true,
       ),
-      body:
-      Container(
+      body: Container(
         padding: EdgeInsets.all(40),
-        child: 
-        ListView(
+        child: ListView(
           children: [
             Container(
-              child: Image.asset('lib/assets/valefarma.png', height: 200),
+              child: Image.asset('lib/assets/valefarma.png', height: 70),
             ),
             SizedBox(height: 40),
             ListTile(
@@ -36,7 +34,7 @@ class MenuCliente extends StatelessWidget {
               ),
               contentPadding: EdgeInsets.fromLTRB(10, 10, 50, 10),
               onTap: () {
-                Navigator.pushNamed(context, '/Tela4');
+                Navigator.pushNamed(context, '/buscacliente');
               },
               hoverColor: Colors.grey[800],
             ),
@@ -53,7 +51,7 @@ class MenuCliente extends StatelessWidget {
               ),
               contentPadding: EdgeInsets.fromLTRB(10, 10, 50, 10),
               onTap: () {
-                Navigator.pushNamed(context, '/Tela4');
+                Navigator.pushNamed(context, '/novocliente');
               },
               hoverColor: Colors.grey[800],
             ),

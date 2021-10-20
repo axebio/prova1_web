@@ -4,6 +4,7 @@ import 'Login.dart';
 import 'NovoUsuario.dart';
 import 'Menu.dart';
 import 'MenuCliente.dart';
+import 'NovoCliente.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -16,6 +17,7 @@ void main() {
         '/novousuario': (context) => NovoUsuario(),
         '/menucliente': (context) => MenuCliente(),
         '/menu': (context) => Menu(),
+        '/novocliente': (context) => NovoCliente(),
       },
       theme: ThemeData(
           primaryColor: Colors.grey[800],

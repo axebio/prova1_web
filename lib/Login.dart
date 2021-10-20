@@ -16,7 +16,7 @@ class _LoginState extends State<Login> {
           automaticallyImplyLeading: true,
           title: Text(
             'VALEFARMA',
-            style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
             // Theme.of(context).textTheme.headline1,
           ),
           backgroundColor: Theme.of(context).primaryColor,
@@ -24,12 +24,12 @@ class _LoginState extends State<Login> {
               onTap: () {
                 Navigator.pushNamed(context, '/Tela3');
               },
-              child: Image.asset('lib/assets/diamante.png', height: 90)),
+              child: Image.asset('lib/assets/diamante.png', height: 70)),
           // Icon(Icons.info, size: 40)),
         ),
         backgroundColor: Theme.of(context).backgroundColor,
         body: Column(children: [
-          SizedBox(height: 100),
+          SizedBox(height: 30),
           Container(
             child: Icon(Icons.supervisor_account,
                 size: 120, color: Theme.of(context).primaryColor),
@@ -40,7 +40,7 @@ class _LoginState extends State<Login> {
           Container(
             alignment: Alignment.center,
             width: MediaQuery.of(context).size.width * 0.30,
-            height: 60,
+            height: MediaQuery.of(context).size.height * 0.1,
             padding: EdgeInsets.only(top: 2, left: 16, right: 16, bottom: 2),
             child: TextFormField(
                 keyboardType: TextInputType.text,
@@ -54,11 +54,11 @@ class _LoginState extends State<Login> {
                     ))),
           ),
 
-          SizedBox(height: 20),
+          SizedBox(height: 10),
           Container(
             alignment: Alignment.center,
             width: MediaQuery.of(context).size.width * 0.30,
-            height: 60,
+            height: MediaQuery.of(context).size.height * 0.1,
             padding: EdgeInsets.only(top: 2, left: 16, right: 16, bottom: 2),
             child: TextFormField(
                 keyboardType: TextInputType.text,
@@ -102,7 +102,7 @@ class _LoginState extends State<Login> {
           //Esqueceu a senha?
           //Criar uma conta
 
-          SizedBox(height: 40),
+          SizedBox(height: 20),
           Container(
             alignment: Alignment.bottomCenter,
             child: ElevatedButton(
@@ -120,7 +120,7 @@ class _LoginState extends State<Login> {
             ),
           ),
 
-          SizedBox(height: 60),
+          SizedBox(height: 20),
           Container(
             alignment: Alignment.bottomCenter,
             child: TextButton(

@@ -34,6 +34,11 @@ class _NovoUsuarioState extends State<NovoUsuario> {
         title:Text('Cadastro de Usuário',
           style: Theme.of(context).textTheme.headline1,
         ),
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pushNamed(context, '/login');},
+            child: Icon(Icons.logout, size: 40,)
+        ),
         backgroundColor: Theme.of(context).primaryColor,
         centerTitle: true,       
       ),
@@ -56,7 +61,7 @@ class _NovoUsuarioState extends State<NovoUsuario> {
                   ),
                   SizedBox(width: 80),
                   Container(
-                    child: Image.asset('lib/assets/valefarma.png', height: 200)
+                    child: Image.asset('lib/assets/valefarma.png', height: 70)
                   )
                 ],
               ),

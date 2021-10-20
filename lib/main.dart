@@ -4,6 +4,7 @@ import 'Login.dart';
 import 'NovoUsuario.dart';
 import 'Menu.dart';
 import 'MenuCliente.dart';
+import 'SobreApp.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -16,17 +17,22 @@ void main() {
         '/novousuario': (context) => NovoUsuario(),
         '/menucliente': (context) => MenuCliente(),
         '/menu': (context) => Menu(),
+        '/sobreapp': (context) => SobreApp(),
       },
       theme: ThemeData(
-          primaryColor: Colors.grey[800],
-          backgroundColor: Colors.grey[100],
-          textTheme: TextTheme(
-              headline1: GoogleFonts.roboto(
-                  color: Colors.white,
-                  fontSize: 22,
-                  fontWeight: FontWeight.normal),
-              headline2: GoogleFonts.roboto(
-                  color: Colors.black,
-                  fontSize: 18,
-                  fontWeight: FontWeight.normal)))));
+        primaryColor: Colors.grey[800],
+        backgroundColor: Colors.grey[100],
+        textTheme: TextTheme(
+          headline1: GoogleFonts.roboto(
+            color: Colors.white,
+            fontSize: 22,
+            fontWeight: FontWeight.normal),
+          headline2: GoogleFonts.roboto(
+            color: Colors.black,
+            fontSize: 18,
+            fontWeight: FontWeight.normal)
+        ),
+      ),
+    ),
+  );
 }

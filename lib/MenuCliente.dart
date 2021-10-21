@@ -6,11 +6,23 @@ class MenuCliente extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
+        automaticallyImplyLeading: true,
         title: Text(
           'Menu de Clientes',
           style: Theme.of(context).textTheme.headline1,
         ),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(
+              Icons.logout,
+              size: 30,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              Navigator.pushNamed(context, '/login');
+            }
+          ),
+        ],
         backgroundColor: Theme.of(context).primaryColor,
         centerTitle: true,
       ),

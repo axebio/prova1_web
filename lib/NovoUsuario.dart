@@ -30,14 +30,9 @@ class _NovoUsuarioState extends State<NovoUsuario> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:AppBar(
-        automaticallyImplyLeading: false,
+        automaticallyImplyLeading: true,
         title:Text('Cadastro de Usuário',
           style: Theme.of(context).textTheme.headline1,
-        ),
-        leading: GestureDetector(
-          onTap: () {
-            Navigator.pushNamed(context, '/login');},
-            child: Icon(Icons.logout, size: 40,)
         ),
         backgroundColor: Theme.of(context).primaryColor,
         centerTitle: true,       

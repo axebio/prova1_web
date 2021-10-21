@@ -18,6 +18,8 @@ class Usuario {
 }
 
 class _NovoClienteState extends State<NovoCliente> {
+  // ignore: avoid_init_to_null
+  var estado = null;
   var nome = TextEditingController();
   var usuario = TextEditingController();
   var email = TextEditingController();
@@ -73,8 +75,8 @@ class _NovoClienteState extends State<NovoCliente> {
                     //keyboardType: TextInputType.text,
                     style: Theme.of(context).textTheme.headline2,
                     decoration: InputDecoration(
-                        labelText: "Nome Completo",
-                        hintText: "Digite seu Nome completo",
+                        labelText: "Nome",
+                        hintText: "Digite o nome do cliente",
                         labelStyle:
                             TextStyle(color: Theme.of(context).primaryColor),
                         border: OutlineInputBorder(
@@ -93,13 +95,73 @@ class _NovoClienteState extends State<NovoCliente> {
                     //keyboardType: TextInputType.text,
                     style: Theme.of(context).textTheme.headline2,
                     decoration: InputDecoration(
-                        labelText: "Usuário",
-                        hintText: "Digite o Nome de usuário",
+                        labelText: "Endereço",
+                        hintText:
+                            "Digite a rua, número e complemento do cliente",
                         labelStyle:
                             TextStyle(color: Theme.of(context).primaryColor),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                         ))),
+              ),
+              SizedBox(height: 10),
+              Row(
+                children: [
+                  SizedBox(width: MediaQuery.of(context).size.width * 0.05),
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    width: MediaQuery.of(context).size.width * 0.50,
+                    height: 60,
+                    padding:
+                        EdgeInsets.only(top: 2, left: 16, right: 16, bottom: 2),
+                    child: TextFormField(
+                        controller: email,
+                        //keyboardType: TextInputType.text,
+                        style: Theme.of(context).textTheme.headline2,
+                        decoration: InputDecoration(
+                            labelText: "Cidade",
+                            hintText: "Digite a cidade do cliente",
+                            labelStyle: TextStyle(
+                                color: Theme.of(context).primaryColor),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ))),
+                  ),
+                  SizedBox(width: MediaQuery.of(context).size.width * 0.025),
+                  Text('Estado:',
+                      style: TextStyle(
+                        color: Theme.of(context).primaryColor,
+                        fontSize: 22,
+                      )),
+                  SizedBox(width: MediaQuery.of(context).size.width * 0.025),
+                  Text('SP',
+                      style: TextStyle(
+                          color: Theme.of(context).primaryColor,
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold)),
+                  Radio(
+                    value: "SP",
+                    groupValue: estado,
+                    onChanged: (valor) {
+                      setState(() {
+                        estado = valor;
+                      });
+                    },
+                  ),
+                  SizedBox(width: MediaQuery.of(context).size.width * 0.0125),
+                  Text('MG',
+                      style:
+                          TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+                  Radio(
+                    value: "MG",
+                    groupValue: estado,
+                    onChanged: (valor) {
+                      setState(() {
+                        estado = valor;
+                      });
+                    },
+                  ),
+                ],
               ),
               SizedBox(height: 10),
               Container(
@@ -109,12 +171,12 @@ class _NovoClienteState extends State<NovoCliente> {
                 padding:
                     EdgeInsets.only(top: 2, left: 16, right: 16, bottom: 2),
                 child: TextFormField(
-                    controller: email,
+                    controller: senha,
                     //keyboardType: TextInputType.text,
                     style: Theme.of(context).textTheme.headline2,
                     decoration: InputDecoration(
                         labelText: "Email",
-                        hintText: "Digite seu Email",
+                        hintText: "Insira o email do cliente",
                         labelStyle:
                             TextStyle(color: Theme.of(context).primaryColor),
                         border: OutlineInputBorder(
@@ -131,38 +193,9 @@ class _NovoClienteState extends State<NovoCliente> {
                 child: TextFormField(
                     controller: senha,
                     //keyboardType: TextInputType.text,
-                    style: Theme.of(context).textTheme.headline2,
                     decoration: InputDecoration(
-                        labelText: "Senha",
-                        hintText: "Digite a senha",
-                        labelStyle:
-                            TextStyle(color: Theme.of(context).primaryColor),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ))),
-              ),
-              SizedBox(height: 10),
-              Container(
-                alignment: Alignment.center,
-                width: MediaQuery.of(context).size.width * 0.90,
-                height: 60,
-                padding:
-                    EdgeInsets.only(top: 2, left: 16, right: 16, bottom: 2),
-                child: TextFormField(
-                    controller: testeSenha,
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'preencha novamente a senha';
-                      } else if (value != senha.text) {
-                        return 'Senhas não batem';
-                      }
-                      return null;
-                    },
-                    //keyboardType: TextInputType.text,
-                    style: Theme.of(context).textTheme.headline2,
-                    decoration: InputDecoration(
-                        labelText: "Confirmar senha",
-                        hintText: "Confirme a senha",
+                        labelText: "Telefone",
+                        hintText: "(XX) XXXX-XXXX",
                         labelStyle:
                             TextStyle(color: Theme.of(context).primaryColor),
                         border: OutlineInputBorder(
@@ -176,14 +209,17 @@ class _NovoClienteState extends State<NovoCliente> {
                   Container(
                     alignment: Alignment.bottomCenter,
                     child: ElevatedButton.icon(
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/menu');
-                        if (_formKey.currentState!.validate()) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                                content: Text('As senhas não batem')),
-                          );
-                        }
+                      onPressed: () async {
+                        await showDialog(
+                          context: context,
+                          builder: (context) {
+                            return AlertDialog(
+                              title: Text(
+                                'Adicionar tarefa',
+                            ),
+                          };
+                        ),
+                        Navigator.pushNamed(context, '/menucliente');
                       },
                       icon: Icon(
                         Icons.check,
@@ -191,7 +227,7 @@ class _NovoClienteState extends State<NovoCliente> {
                         size: 24.0,
                       ),
                       label: Text(
-                        'Registrar',
+                        'Cadastrar',
                         style: GoogleFonts.roboto(
                             color: Colors.white, fontSize: 20),
                       ),
@@ -209,7 +245,7 @@ class _NovoClienteState extends State<NovoCliente> {
                     alignment: Alignment.bottomCenter,
                     child: ElevatedButton.icon(
                       onPressed: () {
-                        Navigator.pushNamed(context, '/menu');
+                        Navigator.pushNamed(context, '/menucliente');
                       },
                       icon: Icon(
                         Icons.cancel,

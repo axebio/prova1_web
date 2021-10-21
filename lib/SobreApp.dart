@@ -36,12 +36,14 @@ class SobreApp extends StatelessWidget {
               ),
               child: Column(
               children: [
-                Text('O objetivo desse aplicativo é atuar como um sistema ERP, para ajudar a Vale Farma, uma empresa que
-                trabalha como distribuidora de produtos farmacêuticos para farmácia, principalmente as de pequeno
-                porte, em cidades menores, atingindo a capilaridade que empresas maiores não se dão o trabalho de
-                cobrir.',
-
-                
+                Text('O objetivo desse aplicativo é atuar como um sistema ERP, para ajudar a Vale Farma, uma empresa que' +
+                'trabalha como distribuidora de produtos farmacêuticos para farmácia, principalmente as de pequeno' +
+                'porte, em cidades menores, atingindo a capilaridade que empresas maiores não se dão o trabalho de' +
+                'cobrir. O aplicativo tem uma tela de login, além de um tela para cadastro de novos usuários. Ao se logarem,' +
+                'podem acessar o menu, onde podem cadastrar novas vendas, novos clientes, assim, como tamb[em verificar os' +
+                'medicamentos disponíveis no estoque para venda. Será possível avaliar relat[orios de venda, filtrando por mes' +
+                'ou por cliente. Atualmente, grande parte das telas já estão implementadas. A idéia é que logo todas as' +
+                'funcionalidades também estejam.',
                 style: GoogleFonts.roboto(color: Colors.white, fontSize: 16),
                 textAlign: TextAlign.justify),  
                 ]

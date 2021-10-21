@@ -5,6 +5,7 @@ import 'NovoUsuario.dart';
 import 'Menu.dart';
 import 'MenuCliente.dart';
 import 'SobreApp.dart';
+import 'Medicamentos.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -18,6 +19,7 @@ void main() {
         '/menucliente': (context) => MenuCliente(),
         '/menu': (context) => Menu(),
         '/sobreapp': (context) => SobreApp(),
+        '/medicamentos': (context) => Medicamentos(),
       },
       theme: ThemeData(
         primaryColor: Colors.grey[800],

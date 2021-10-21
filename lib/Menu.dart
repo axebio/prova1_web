@@ -6,19 +6,27 @@ class Menu extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
+        automaticallyImplyLeading: true,
         title: Text(
           'Menu',
           style: Theme.of(context).textTheme.headline1,
         ),
-        leading: GestureDetector(
-          onTap: () {
-            Navigator.pushNamed(context, '/login');},
-            child: Icon(Icons.logout, size: 40,)
-        ),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(
+              Icons.logout,
+              size: 30,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              Navigator.pushNamed(context, '/login');
+            }
+          ),
+        ],
         backgroundColor: Theme.of(context).primaryColor,
         centerTitle: true,
       ),
+
       body: Container(
         padding: EdgeInsets.all(40),
         child: ListView(
@@ -76,7 +84,7 @@ class Menu extends StatelessWidget {
               ),
               contentPadding: EdgeInsets.fromLTRB(10, 10, 50, 10),
               onTap: () {
-                Navigator.pushNamed(context, '/Tela4');
+                Navigator.pushNamed(context, '/medicamentos');
               },
               hoverColor: Colors.grey[800],
             ),

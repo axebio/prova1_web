@@ -39,7 +39,7 @@ class _LoginState extends State<Login> {
           SizedBox(height: 20),
           Container(
             alignment: Alignment.center,
-            width: MediaQuery.of(context).size.width * 0.30,
+            width: MediaQuery.of(context).size.width * 0.90,
             height: MediaQuery.of(context).size.height * 0.1,
             padding: EdgeInsets.only(top: 2, left: 16, right: 16, bottom: 2),
             child: TextFormField(
@@ -57,7 +57,7 @@ class _LoginState extends State<Login> {
           SizedBox(height: 10),
           Container(
             alignment: Alignment.center,
-            width: MediaQuery.of(context).size.width * 0.30,
+            width: MediaQuery.of(context).size.width * 0.90,
             height: MediaQuery.of(context).size.height * 0.1,
             padding: EdgeInsets.only(top: 2, left: 16, right: 16, bottom: 2),
             child: TextFormField(

@@ -6,14 +6,27 @@ class Menu extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
+        automaticallyImplyLeading: true,
         title: Text(
           'Menu',
           style: Theme.of(context).textTheme.headline1,
         ),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(
+              Icons.logout,
+              size: 30,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              Navigator.pushNamed(context, '/login');
+            }
+          ),
+        ],
         backgroundColor: Theme.of(context).primaryColor,
         centerTitle: true,
       ),
+
       body: Container(
         padding: EdgeInsets.all(40),
         child: ListView(
@@ -27,7 +40,7 @@ class Menu extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10)),
               tileColor: Colors.grey[600],
               leading:
-                  Icon(Icons.local_hospital, color: Colors.white, size: 40),
+                  Icon(Icons.supervisor_account, color: Colors.white, size: 40),
               title: Text(
                 'Clientes',
                 textAlign: TextAlign.center,
@@ -45,7 +58,7 @@ class Menu extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10)),
               tileColor: Colors.grey[600],
               leading:
-                  Icon(Icons.local_hospital, color: Colors.white, size: 40),
+                  Icon(Icons.point_of_sale, color: Colors.white, size: 40),
               title: Text(
                 'Registrar Venda',
                 textAlign: TextAlign.center,
@@ -63,7 +76,7 @@ class Menu extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10)),
               tileColor: Colors.grey[600],
               leading:
-                  Icon(Icons.local_hospital, color: Colors.white, size: 40),
+                  Icon(Icons.medication, color: Colors.white, size: 40),
               title: Text(
                 'Medicamentos',
                 textAlign: TextAlign.center,
@@ -71,7 +84,7 @@ class Menu extends StatelessWidget {
               ),
               contentPadding: EdgeInsets.fromLTRB(10, 10, 50, 10),
               onTap: () {
-                Navigator.pushNamed(context, '/Tela4');
+                Navigator.pushNamed(context, '/medicamentos');
               },
               hoverColor: Colors.grey[800],
             ),
@@ -81,7 +94,7 @@ class Menu extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10)),
               tileColor: Colors.grey[600],
               leading:
-                  Icon(Icons.local_hospital, color: Colors.white, size: 40),
+                  Icon(Icons.document_scanner, color: Colors.white, size: 40),
               title: Text(
                 'Relatórios',
                 textAlign: TextAlign.center,
@@ -99,7 +112,7 @@ class Menu extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10)),
               tileColor: Colors.grey[600],
               leading:
-                  Icon(Icons.local_hospital, color: Colors.white, size: 40),
+                  Icon(Icons.info, color: Colors.white, size: 40),
               title: Text(
                 'Sobre o App',
                 textAlign: TextAlign.center,
@@ -107,7 +120,7 @@ class Menu extends StatelessWidget {
               ),
               contentPadding: EdgeInsets.fromLTRB(10, 10, 50, 10),
               onTap: () {
-                Navigator.pushNamed(context, '/Tela4');
+                Navigator.pushNamed(context, '/sobreapp');
               },
               hoverColor: Colors.grey[800],
             ),

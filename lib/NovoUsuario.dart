@@ -28,10 +28,9 @@ class _NovoUsuarioState extends State<NovoUsuario> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: Text(
-          'Cadastro de Usuário',
+      appBar:AppBar(
+        automaticallyImplyLeading: true,
+        title:Text('Cadastro de Usuário',
           style: Theme.of(context).textTheme.headline1,
         ),
         backgroundColor: Theme.of(context).primaryColor,

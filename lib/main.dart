@@ -5,6 +5,8 @@ import 'NovoUsuario.dart';
 import 'Menu.dart';
 import 'MenuCliente.dart';
 import 'NovoCliente.dart';
+import 'SobreApp.dart';
+import 'Medicamentos.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -18,17 +20,23 @@ void main() {
         '/menucliente': (context) => MenuCliente(),
         '/menu': (context) => Menu(),
         '/novocliente': (context) => NovoCliente(),
+        '/sobreapp': (context) => SobreApp(),
+        '/medicamentos': (context) => Medicamentos(),
       },
       theme: ThemeData(
-          primaryColor: Colors.grey[800],
-          backgroundColor: Colors.grey[100],
-          textTheme: TextTheme(
-              headline1: GoogleFonts.roboto(
-                  color: Colors.white,
-                  fontSize: 22,
-                  fontWeight: FontWeight.normal),
-              headline2: GoogleFonts.roboto(
-                  color: Colors.black,
-                  fontSize: 18,
-                  fontWeight: FontWeight.normal)))));
+        primaryColor: Colors.grey[800],
+        backgroundColor: Colors.grey[100],
+        textTheme: TextTheme(
+          headline1: GoogleFonts.roboto(
+            color: Colors.white,
+            fontSize: 22,
+            fontWeight: FontWeight.normal),
+          headline2: GoogleFonts.roboto(
+            color: Colors.black,
+            fontSize: 18,
+            fontWeight: FontWeight.normal)
+        ),
+      ),
+    ),
+  );
 }

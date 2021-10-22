@@ -209,17 +209,22 @@ class _NovoClienteState extends State<NovoCliente> {
                   Container(
                     alignment: Alignment.bottomCenter,
                     child: ElevatedButton.icon(
-                      onPressed: () async {
-                        await showDialog(
+                      onPressed: () {
+                        showDialog(
                           context: context,
-                          builder: (context) {
-                            return AlertDialog(
-                              title: Text(
-                                'Adicionar tarefa',
-                            ),
-                          };
-                        ),
-                        Navigator.pushNamed(context, '/menucliente');
+                          builder: (context) => AlertDialog(
+                            title: Text("Registro de Clientes"),
+                            content: Text("Cliente Registrado com Sucesso!"),
+                            actions: <Widget>[
+                              ElevatedButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Text('OK'),
+                              ),
+                            ],
+                          ),
+                        );
                       },
                       icon: Icon(
                         Icons.check,
@@ -227,7 +232,7 @@ class _NovoClienteState extends State<NovoCliente> {
                         size: 24.0,
                       ),
                       label: Text(
-                        'Cadastrar',
+                        'Registrar',
                         style: GoogleFonts.roboto(
                             color: Colors.white, fontSize: 20),
                       ),
@@ -245,7 +250,7 @@ class _NovoClienteState extends State<NovoCliente> {
                     alignment: Alignment.bottomCenter,
                     child: ElevatedButton.icon(
                       onPressed: () {
-                        Navigator.pushNamed(context, '/menucliente');
+                        Navigator.pushNamed(context, '/menucliente'); //
                       },
                       icon: Icon(
                         Icons.cancel,
@@ -275,3 +280,41 @@ class _NovoClienteState extends State<NovoCliente> {
     );
   }
 }
+
+// Widget _abrirDialogo(BuildContext context) {
+//   showDialog(
+//       context: context,
+//       builder: (context) => AlertDialog(
+//             title: Text("Titulo do dialogo"),
+//             content: Text("Corpo do dialogo")
+//             actions: <Widget>[
+//               ElevatedButton(onPressed: (){
+
+//               },
+//               child: Text('ok'),
+//               ),
+//             ],
+//       ),
+//   );
+// }
+
+// //         return Container(
+// //           child: AlertDialog(
+// //             title: Text("Titulo do dialogo"),
+// //             content: Column(
+// //               children: <Widget>[
+// //                 Text("TExto do dialogo"),
+// //                 MaterialButton(
+//                   onPressed: () {
+//                     Navigator.of(context).pop();
+//                   },
+//                   color: Colors.black,
+//                   child: Text("Fechar"),
+//                 ),
+//               ],
+//             ),
+//           ),
+//         );
+//       }
+//   );
+// }

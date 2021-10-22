@@ -37,7 +37,7 @@ class _MedicamentosPageState extends State<Medicamentos> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-            appBar: AppBar(
+      appBar: AppBar(
         automaticallyImplyLeading: true,
         title: Text(
           'Medicamentos',
@@ -45,15 +45,14 @@ class _MedicamentosPageState extends State<Medicamentos> {
         ),
         actions: <Widget>[
           IconButton(
-            icon: Icon(
-              Icons.logout,
-              size: 30,
-              color: Colors.white,
-            ),
-            onPressed: () {
-              Navigator.pushNamed(context, '/login');
-            }
-          ),
+              icon: Icon(
+                Icons.logout,
+                size: 30,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                Navigator.pushNamed(context, '/login');
+              }),
         ],
         backgroundColor: Theme.of(context).primaryColor,
         centerTitle: true,
@@ -61,7 +60,7 @@ class _MedicamentosPageState extends State<Medicamentos> {
 
       body: Container(
         padding: EdgeInsets.all(30),
-        color: Colors.grey.shade200,       
+        color: Colors.grey.shade200,
         child: ListView.builder(
           scrollDirection: Axis.vertical,
           itemCount: lista.length,
@@ -75,8 +74,7 @@ class _MedicamentosPageState extends State<Medicamentos> {
                   lista[index],
                   style: TextStyle(fontSize: 22),
                 ),
-                subtitle: Text(
-                    'Em estoque'),
+                subtitle: Text('Em estoque'),
                 trailing: IconButton(
                   icon: Icon(Icons.delete_outline),
                   onPressed: () {
@@ -92,7 +90,8 @@ class _MedicamentosPageState extends State<Medicamentos> {
                 hoverColor: Colors.grey.shade100,
                 onTap: () {
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    content: Text('Medicamento ${lista[index]} em estoque: 25 unidades'),
+                    content: Text(
+                        'Medicamento ${lista[index]} em estoque: 25 unidades'),
                     duration: Duration(seconds: 2),
                   ));
                 },
@@ -150,15 +149,14 @@ class _MedicamentosPageState extends State<Medicamentos> {
                       },
                     ),
                     TextButton(
-                      child: Text('cancelar'),
+                      child: Text('Cancelar'),
                       onPressed: () {
                         Navigator.pop(context);
                       },
                     ),
                   ],
                 );
-              }
-            );
+              });
         },
       ),
     );

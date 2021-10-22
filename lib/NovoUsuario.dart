@@ -28,9 +28,10 @@ class _NovoUsuarioState extends State<NovoUsuario> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:AppBar(
+      appBar: AppBar(
         automaticallyImplyLeading: true,
-        title:Text('Cadastro de Usuário',
+        title: Text(
+          'Cadastro de Usuário',
           style: Theme.of(context).textTheme.headline1,
         ),
         backgroundColor: Theme.of(context).primaryColor,
@@ -174,7 +175,7 @@ class _NovoUsuarioState extends State<NovoUsuario> {
                     alignment: Alignment.bottomCenter,
                     child: ElevatedButton.icon(
                       onPressed: () {
-                        Navigator.pushNamed(context, '/menu');
+                        Navigator.pushNamed(context, '/login');
                         if (_formKey.currentState!.validate()) {
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(

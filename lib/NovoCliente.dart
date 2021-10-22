@@ -56,7 +56,7 @@ class _NovoClienteState extends State<NovoCliente> {
                         size: 100, color: Theme.of(context).primaryColor),
                   ),
                   SizedBox(
-                    width: MediaQuery.of(context).size.width - 300,
+                    width: 30,
                   ),
                   Container(
                       child:

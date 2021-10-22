@@ -13,15 +13,14 @@ class MenuCliente extends StatelessWidget {
         ),
         actions: <Widget>[
           IconButton(
-            icon: Icon(
-              Icons.logout,
-              size: 30,
-              color: Colors.white,
-            ),
-            onPressed: () {
-              Navigator.pushNamed(context, '/login');
-            }
-          ),
+              icon: Icon(
+                Icons.logout,
+                size: 30,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                Navigator.pushNamed(context, '/login');
+              }),
         ],
         backgroundColor: Theme.of(context).primaryColor,
         centerTitle: true,
@@ -67,7 +66,23 @@ class MenuCliente extends StatelessWidget {
               },
               hoverColor: Colors.grey[800],
             ),
-            SizedBox(height: 25),
+            SizedBox(height: 80),
+            ListTile(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)),
+              tileColor: Colors.grey[500],
+              leading: Icon(Icons.arrow_back, color: Colors.white, size: 40),
+              title: Text(
+                'Voltar',
+                textAlign: TextAlign.center,
+                style: GoogleFonts.roboto(color: Colors.white, fontSize: 25),
+              ),
+              contentPadding: EdgeInsets.fromLTRB(10, 10, 50, 10),
+              onTap: () {
+                Navigator.pushNamed(context, '/menu');
+              },
+              hoverColor: Colors.grey[800],
+            ),
           ],
         ),
       ),

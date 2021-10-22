@@ -6,6 +6,7 @@ import 'Menu.dart';
 import 'MenuCliente.dart';
 import 'SobreApp.dart';
 import 'Medicamentos.dart';
+import 'EditarMedicamento.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -20,6 +21,7 @@ void main() {
         '/menu': (context) => Menu(),
         '/sobreapp': (context) => SobreApp(),
         '/medicamentos': (context) => Medicamentos(),
+        '/editarmedicamento': (context) => EditarMedicamento(),
       },
       theme: ThemeData(
         primaryColor: Colors.grey[800],

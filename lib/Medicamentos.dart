@@ -70,7 +70,12 @@ class _MedicamentosPageState extends State<Medicamentos> {
               elevation: 10,
               shadowColor: Colors.grey.shade200,
               child: ListTile(
-                leading: Icon(Icons.edit),
+                leading: IconButton(
+                  icon: Icon(Icons.edit),
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/editarmedicamento');
+                  },
+                ),
                 title: Text(
                   lista[index],
                   style: TextStyle(fontSize: 22),
@@ -126,6 +131,7 @@ class _MedicamentosPageState extends State<Medicamentos> {
                       fontSize: 24,
                     ),
                   ),
+                  
                   actions: [
                     TextButton(
                       child: Text('ok'),

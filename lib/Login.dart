@@ -13,7 +13,7 @@ class _LoginState extends State<Login> {
     return Scaffold(
         appBar: AppBar(
           toolbarHeight: 100,
-          automaticallyImplyLeading: true,
+          automaticallyImplyLeading: false,
           title: Text(
             'VALEFARMA',
             style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),

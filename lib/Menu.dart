@@ -102,7 +102,7 @@ class Menu extends StatelessWidget {
               ),
               contentPadding: EdgeInsets.fromLTRB(10, 10, 50, 10),
               onTap: () {
-                Navigator.pushNamed(context, '/Tela4');
+                Navigator.pushNamed(context, '');
               },
               hoverColor: Colors.grey[800],
             ),

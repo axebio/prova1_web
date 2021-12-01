@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "269352765427",
+    "project_id": "flutter-provaplotze",
+    "storage_bucket": "flutter-provaplotze.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:269352765427:android:c47c192922a98c5fe6b486",
+        "android_client_info": {
+          "package_name": "com.example.danilo_rafael"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "269352765427-dr0rgdt8a7metr34i30qtctnv2ahgeqh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0LaUe_5GrgRfHJVlggSU8kwMaazeSi2c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "269352765427-dr0rgdt8a7metr34i30qtctnv2ahgeqh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

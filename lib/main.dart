@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:prova1_web/InserirMedicamento.dart';
 import 'Login.dart';
 import 'NovoUsuario.dart';
 import 'Menu.dart';
@@ -9,7 +10,8 @@ import 'Medicamentos.dart';
 import 'EditarMedicamento.dart';
 
 void main() {
-  runApp(MaterialApp(
+  runApp(
+    MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'ValeFarma',
       home: Login(),
@@ -22,20 +24,20 @@ void main() {
         '/sobreapp': (context) => SobreApp(),
         '/medicamentos': (context) => Medicamentos(),
         '/editarmedicamento': (context) => EditarMedicamento(),
+        '/inserirmedicamento': (context) => InserirMedicamentoPage(),
       },
       theme: ThemeData(
         primaryColor: Colors.grey[800],
         backgroundColor: Colors.grey[100],
         textTheme: TextTheme(
-          headline1: GoogleFonts.roboto(
-            color: Colors.white,
-            fontSize: 22,
-            fontWeight: FontWeight.normal),
-          headline2: GoogleFonts.roboto(
-            color: Colors.black,
-            fontSize: 18,
-            fontWeight: FontWeight.normal)
-        ),
+            headline1: GoogleFonts.roboto(
+                color: Colors.white,
+                fontSize: 22,
+                fontWeight: FontWeight.normal),
+            headline2: GoogleFonts.roboto(
+                color: Colors.black,
+                fontSize: 18,
+                fontWeight: FontWeight.normal)),
       ),
     ),
   );

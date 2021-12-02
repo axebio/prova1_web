@@ -58,24 +58,6 @@ class Menu extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10)),
               tileColor: Colors.grey[600],
               leading:
-                  Icon(Icons.point_of_sale, color: Colors.white, size: 40),
-              title: Text(
-                'Registrar Venda',
-                textAlign: TextAlign.center,
-                style: GoogleFonts.roboto(color: Colors.white, fontSize: 25),
-              ),
-              contentPadding: EdgeInsets.fromLTRB(10, 10, 50, 10),
-              onTap: () {
-                Navigator.pushNamed(context, '/registrovenda');
-              },
-              hoverColor: Colors.grey[800],
-            ),
-            SizedBox(height: 25),
-            ListTile(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10)),
-              tileColor: Colors.grey[600],
-              leading:
                   Icon(Icons.medication, color: Colors.white, size: 40),
               title: Text(
                 'Medicamentos',
@@ -85,6 +67,24 @@ class Menu extends StatelessWidget {
               contentPadding: EdgeInsets.fromLTRB(10, 10, 50, 10),
               onTap: () {
                 Navigator.pushNamed(context, '/medicamentos');
+              },
+              hoverColor: Colors.grey[800],
+            ),
+            SizedBox(height: 25),
+            ListTile(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)),
+              tileColor: Colors.grey[600],
+              leading:
+                  Icon(Icons.point_of_sale, color: Colors.white, size: 40),
+              title: Text(
+                'Registrar Venda',
+                textAlign: TextAlign.center,
+                style: GoogleFonts.roboto(color: Colors.white, fontSize: 25),
+              ),
+              contentPadding: EdgeInsets.fromLTRB(10, 10, 50, 10),
+              onTap: () {
+                Navigator.pushNamed(context, '/registrovenda');
               },
               hoverColor: Colors.grey[800],
             ),

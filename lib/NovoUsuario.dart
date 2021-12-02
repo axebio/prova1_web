@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -7,18 +9,15 @@ class NovoUsuario extends StatefulWidget {
   @override
   _NovoUsuarioState createState() => _NovoUsuarioState();
 }
-
-class Usuario{
-  final String nome;
-  final String usuario;
-  final String email;
-  final String senha;
-  final String testeSenha;
-  Usuario(this.nome,this.usuario,this.email,this.senha,this.testeSenha);
-}
-
+// class Usuario {
+//   final String nome;
+//   final String usuario;
+//   final String email;
+//   final String senha;
+//   final String testeSenha;
+//   Usuario(this.nome, this.usuario, this.email, this.senha, this.testeSenha);
+// }
 class _NovoUsuarioState extends State<NovoUsuario> {
-
   var nome = TextEditingController();
   var usuario = TextEditingController();
   var email = TextEditingController();
@@ -193,7 +192,9 @@ class _NovoUsuarioState extends State<NovoUsuario> {
                   Container(   
                     alignment: Alignment.bottomCenter,
                     child: ElevatedButton.icon(
-                      onPressed: () { Navigator.pushNamed(context, '/menu');
+                      //onPressed: () { Navigator.pushNamed(context, '/menu');
+                      onPressed: () { 
+                        criarconta(nome.text, usuario.text, email.text, senha.text, testeSenha.text);
                         if (_formKey.currentState!.validate()) {
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(content: Text('As senhas não batem')),
@@ -247,5 +248,45 @@ class _NovoUsuarioState extends State<NovoUsuario> {
         ),
       ),
     );
+  }
+
+  void criarconta(nome, usuario, email, senha, testeSenha) {
+    FirebaseAuth.instance.createUserWithEmailAndPassword(
+      email: email,
+      password: senha,
+    )
+    .then((value){
+      FirebaseFirestore.instance.collection('usuarios').doc(value.user!.uid).set(
+        {
+          'nome': nome,
+          'usuario': usuario,
+          'email': email,
+        }
+      ).then((value) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Usuário criado com sucesso!'),
+            duration: Duration(seconds: 2),
+          ),
+        );
+        Navigator.pop(context);
+      });
+    }).catchError((erro) {
+      if (erro.code == 'email-already-in-use') {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('ERRO: O email informado já está em uso.'),
+            duration: Duration(seconds: 2),
+          ),
+        );
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('ERRO: ${erro.message}'),
+            duration: const Duration(seconds: 2),
+          ),
+        );
+      }
+    });
   }
 }

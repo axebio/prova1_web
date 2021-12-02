@@ -262,12 +262,12 @@ class _NovoUsuarioState extends State<NovoUsuario> {
           'usuario': usuario,
           'email': email,
         }
-      ).then((value) {
+      ).then((valor) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text('Usuário criado com sucesso!'),
             duration: Duration(seconds: 2),
-          ),
+          )
         );
         Navigator.pop(context);
       });
@@ -277,16 +277,18 @@ class _NovoUsuarioState extends State<NovoUsuario> {
           const SnackBar(
             content: Text('ERRO: O email informado já está em uso.'),
             duration: Duration(seconds: 2),
-          ),
+          )
         );
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text('ERRO: ${erro.message}'),
             duration: const Duration(seconds: 2),
-          ),
+          )
         );
       }
     });
   }
 }
+
+

@@ -48,7 +48,7 @@ class Menu extends StatelessWidget {
               ),
               contentPadding: EdgeInsets.fromLTRB(10, 10, 50, 10),
               onTap: () {
-                Navigator.pushNamed(context, '/menucliente');
+                Navigator.pushNamed(context, '/clientes');
               },
               hoverColor: Colors.grey[800],
             ),

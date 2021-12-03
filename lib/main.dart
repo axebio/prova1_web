@@ -4,10 +4,10 @@ import 'package:prova1_web/InserirMedicamento.dart';
 import 'Login.dart';
 import 'NovoUsuario.dart';
 import 'Menu.dart';
-import 'MenuCliente.dart';
 import 'SobreApp.dart';
 import 'Medicamentos.dart';
-
+import 'Clientes.dart';
+import 'InserirClientes.dart';
 
 void main() {
   runApp(
@@ -19,11 +19,12 @@ void main() {
       routes: {
         '/login': (context) => Login(),
         '/novousuario': (context) => NovoUsuario(),
-        '/menucliente': (context) => MenuCliente(),
         '/menu': (context) => Menu(),
         '/sobreapp': (context) => SobreApp(),
         '/medicamentos': (context) => Medicamentos(),
         '/inserirmedicamento': (context) => InserirMedicamentoPage(),
+        '/inserirclientes': (context) => InserirClientesPage(),
+        '/clientes': (context) => Clientes(),
       },
       theme: ThemeData(
         primaryColor: Colors.grey[800],

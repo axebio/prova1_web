@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -31,6 +32,7 @@ class _LoginState extends State<Login> {
                 Navigator.pushNamed(context, '/Tela3');
               },
               child: Image.asset('lib/assets/diamante.png', height: 70)),
+          centerTitle: true,
           // Icon(Icons.info, size: 40)),
         ),
         backgroundColor: Theme.of(context).backgroundColor,
@@ -49,11 +51,12 @@ class _LoginState extends State<Login> {
             height: MediaQuery.of(context).size.height * 0.1,
             padding: EdgeInsets.only(top: 2, left: 16, right: 16, bottom: 2),
             child: TextFormField(
+                controller: txtEmail,
                 keyboardType: TextInputType.text,
                 style: Theme.of(context).textTheme.headline2,
                 decoration: InputDecoration(
-                    labelText: "Usuário",
-                    hintText: "Digite seu nome de Usuário",
+                    labelText: "Email",
+                    hintText: "Digite seu nome Email",
                     labelStyle: TextStyle(color: Colors.black87),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
@@ -67,6 +70,8 @@ class _LoginState extends State<Login> {
             height: MediaQuery.of(context).size.height * 0.1,
             padding: EdgeInsets.only(top: 2, left: 16, right: 16, bottom: 2),
             child: TextFormField(
+                obscureText: true,
+                controller: txtSenha,
                 keyboardType: TextInputType.text,
                 style: Theme.of(context).textTheme.headline2,
                 decoration: InputDecoration(
@@ -83,7 +88,10 @@ class _LoginState extends State<Login> {
             alignment: Alignment.bottomCenter,
             child: ElevatedButton.icon(
               onPressed: () {
-                Navigator.pushNamed(context, '/menu');
+                setState(() {
+                    isLoading = true;
+                  });
+                  login(txtEmail.text, txtSenha.text);
               },
               icon: Icon(
                 Icons.login,
@@ -143,5 +151,32 @@ class _LoginState extends State<Login> {
             ),
           ),
         ]));
+  }
+
+  void login(email, senha) {
+    FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: senha).then((value) {
+
+      Navigator.pushNamed(context, '/menu');
+
+    }).catchError((erro){
+
+      var mensagem = '';
+      if (erro.code == 'user-not-found'){
+        mensagem = 'ERRO: Usuário não encontrado';
+      }else if (erro.code == 'wrong-password'){
+        mensagem = 'ERRO: Senha incorreta';
+      }else if ( erro.code == 'invalid-email'){
+        mensagem = 'ERRO: Email inválido';
+      }else{
+        mensagem = erro.message;
+      }
+
+      ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(mensagem),
+            duration: const Duration(seconds:2)
+          )
+      );
+    });
   }
 }

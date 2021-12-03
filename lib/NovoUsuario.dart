@@ -128,6 +128,7 @@ class _NovoUsuarioState extends State<NovoUsuario> {
                 padding:
                     EdgeInsets.only(top: 2, left: 16, right: 16, bottom: 2),
                 child: TextFormField(
+                    obscureText: true,
                     controller: senha,
                     //keyboardType: TextInputType.text,
                     style: Theme.of(context).textTheme.headline2,
@@ -148,6 +149,7 @@ class _NovoUsuarioState extends State<NovoUsuario> {
                 padding:
                     EdgeInsets.only(top: 2, left: 16, right: 16, bottom: 2),
                 child: TextFormField(
+                    obscureText: true,
                     controller: testeSenha,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -246,7 +248,6 @@ class _NovoUsuarioState extends State<NovoUsuario> {
       email: email,
       password: senha,
     )
-<<<<<<< HEAD
     .then((value){
       FirebaseFirestore.instance.collection('usuarios').doc(value.user!.uid).set(
         {
@@ -255,17 +256,6 @@ class _NovoUsuarioState extends State<NovoUsuario> {
           'email': email,
         }
       ).then((valor) {
-=======
-        .then((value) {
-      FirebaseFirestore.instance
-          .collection('usuarios')
-          .doc(value.user!.uid)
-          .set({
-        'nome': nome,
-        'usuario': usuario,
-        'email': email,
-      }).then((value) {
->>>>>>> 77fcb684005981c040f070ef9d886fb1fd185250
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text('Usuário criado com sucesso!'),
@@ -273,6 +263,7 @@ class _NovoUsuarioState extends State<NovoUsuario> {
           )
         );
         Navigator.pop(context);
+        Navigator.pushNamed(context, '/login');
       });
     }).catchError((erro) {
       if (erro.code == 'email-already-in-use') {

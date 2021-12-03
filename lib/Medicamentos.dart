@@ -17,47 +17,44 @@ class _MedicamentosPageState extends State<Medicamentos> {
     medicamentos = FirebaseFirestore.instance.collection('medicamentos');
   }
 
-  Widget listaMedicamentos(medicamento){
+  Widget listaMedicamentos(medicamento) {
     String nome = medicamento.data()['nome'];
     String fornecedor = medicamento.data()['fornecedor'];
-    num compra = medicamento.data()['compra'];
-    num venda = medicamento.data()['venda'];
-    num qnt = medicamento.data()['qnt'];
+    String compra = medicamento.data()['compra'];
+    String venda = medicamento.data()['venda'];
+    String qnt = medicamento.data()['qnt'];
     return ListTile(
-            leading: IconButton(
-              icon: Icon(Icons.edit),
-              onPressed: () {
-                Navigator.pushNamed(context, 
-                                    '/inserirmedicamento', 
-                                    arguments: medicamento.id);
-              },
-            ),
-            title: Text(
-              nome, 
-              style: TextStyle(fontSize: 22),
-            ),
-            subtitle: Text('Em estoque'),
-            trailing: IconButton(
-              icon: Icon(Icons.delete_outline),
-              onPressed: () {
-                medicamentos.doc(medicamento.id).delete();
-              },
-            ),
-            hoverColor: Colors.grey.shade100,
-            onTap: () {
-              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                content: Text(
-                    'Medicamento $nome: em estoque: $qnt unidades'),
-                duration: Duration(seconds: 3),
-              ));
-            },
-          );
-
-    
+      leading: IconButton(
+        icon: Icon(Icons.edit),
+        onPressed: () {
+          Navigator.pushNamed(context, '/inserirmedicamento',
+              arguments: medicamento.id);
+        },
+      ),
+      title: Text(
+        nome,
+        style: TextStyle(fontSize: 22),
+      ),
+      subtitle: Text('Em estoque'),
+      trailing: IconButton(
+        icon: Icon(Icons.delete_outline),
+        onPressed: () {
+          medicamentos.doc(medicamento.id).delete();
+        },
+      ),
+      hoverColor: Colors.grey.shade100,
+      onTap: () {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text('''$nome: 
+                        Fabricante: $fornecedor
+                        Preco de Compra: $compra
+                        Preco de Venda: $venda
+                        estoque: $qnt'''),
+          duration: Duration(seconds: 5),
+        ));
+      },
+    );
   }
-
-
-  var lista = [];
 
   @override
   Widget build(BuildContext context) {
@@ -82,37 +79,33 @@ class _MedicamentosPageState extends State<Medicamentos> {
         backgroundColor: Theme.of(context).primaryColor,
         centerTitle: true,
       ),
-
-
       body: StreamBuilder<QuerySnapshot>(
-        stream: medicamentos.snapshots(),
-        builder:(context, snapshot){
-          switch(snapshot.connectionState){
-            case ConnectionState.none:
-              return Center(child: Text("Impossível acessar o banco de dados."));
-            case ConnectionState.waiting:
-              return Center(child:  CircularProgressIndicator());
-            default:
-              final dados = snapshot.requireData;
-              return ListView.builder(
-                itemCount: dados.size,
-                itemBuilder: (context, index){
-                  return listaMedicamentos(dados.docs[index]);
-                }
-              );
-          }
-        }
-      ),
-
+          stream: medicamentos.snapshots(),
+          builder: (context, snapshot) {
+            switch (snapshot.connectionState) {
+              case ConnectionState.none:
+                return Center(
+                    child: Text("Impossível acessar o banco de dados."));
+              case ConnectionState.waiting:
+                return Center(child: CircularProgressIndicator());
+              default:
+                final dados = snapshot.requireData;
+                return ListView.builder(
+                    itemCount: dados.size,
+                    itemBuilder: (context, index) {
+                      return listaMedicamentos(dados.docs[index]);
+                    });
+            }
+          }),
       backgroundColor: Colors.grey.shade200,
       floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       floatingActionButton: FloatingActionButton(
-      backgroundColor: Colors.grey.shade800,
-      child: Icon(Icons.add),
-      onPressed: () {
-        Navigator.pushNamed(context, '/inserirmedicamento');
-      },
-      ),   
+        backgroundColor: Colors.grey.shade800,
+        child: Icon(Icons.add),
+        onPressed: () {
+          Navigator.pushNamed(context, '/inserirmedicamento');
+        },
+      ),
     );
   }
 }

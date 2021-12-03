@@ -10,15 +10,31 @@ class InserirMedicamentoPage extends StatefulWidget {
 }
 
 class _InserirMedicamentoPageState extends State<InserirMedicamentoPage> {
-  var lista = [];
   var txtNome = TextEditingController();
   var txtFornecedor = TextEditingController();
   var txtCompra = TextEditingController();
   var txtVenda = TextEditingController();
   var txtQnt = TextEditingController();
 
+  getMedicamento(id) async {
+    await FirebaseFirestore.instance
+        .collection('medicamentos')
+        .doc(id)
+        .get()
+        .then((doc) {
+      txtNome.text = doc.get('nome');
+      txtFornecedor.text = doc.get('fornecedor');
+      txtCompra.text = doc.get('compra');
+      txtVenda.text = doc.get('venda');
+      txtQnt.text = doc.get('qnt');
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    var id = ModalRoute.of(context)?.settings.arguments;
+    getMedicamento(id);
+
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: true,
@@ -44,11 +60,13 @@ class _InserirMedicamentoPageState extends State<InserirMedicamentoPage> {
         children: [
           SizedBox(height: 20),
           Container(
-              alignment: Alignment.center,
-              width: MediaQuery.of(context).size.width * 0.90,
-              height: MediaQuery.of(context).size.height * 0.1,
-              padding: EdgeInsets.only(top: 2, left: 16, right: 16, bottom: 2),
-              child: Text("Favor inserir os dados do novo medicamento")),
+            alignment: Alignment.center,
+            width: MediaQuery.of(context).size.width * 0.90,
+            height: MediaQuery.of(context).size.height * 0.1,
+            padding: EdgeInsets.only(top: 2, left: 16, right: 16, bottom: 2),
+            child: Text("Favor inserir os dados do novo medicamento",
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+          ),
           SizedBox(height: 20),
           Container(
             alignment: Alignment.center,
@@ -147,14 +165,14 @@ class _InserirMedicamentoPageState extends State<InserirMedicamentoPage> {
                 child: ElevatedButton(
                   onPressed: () {
                     FirebaseFirestore.instance.collection('medicamentos').add({
-                      'nome': txtNome,
-                      'fornecedor': txtFornecedor,
-                      'compra': txtCompra,
-                      'venda': txtVenda,
-                      'qnt': txtQnt
+                      'nome': txtNome.text,
+                      'fornecedor': txtFornecedor.text,
+                      'compra': txtCompra.text,
+                      'venda': txtVenda.text,
+                      'qnt': txtQnt.text
                     });
                     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                        content: Text('operacao realizada com sucesso.'),
+                        content: Text('Inserido com sucesso.'),
                         duration: Duration(seconds: 2)));
                   },
                   child: Text(
@@ -172,7 +190,7 @@ class _InserirMedicamentoPageState extends State<InserirMedicamentoPage> {
                 alignment: Alignment.center,
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/Tela2');
+                    Navigator.pushNamed(context, '/medicamentos');
                   },
                   child: Text(
                     'CANCELAR',
